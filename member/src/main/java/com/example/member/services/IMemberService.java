@@ -1,8 +1,6 @@
 package com.example.member.services;
 
-import com.example.member.entity.EnseignantChercheur;
-import com.example.member.entity.Etudiant;
-import com.example.member.entity.Member;
+import com.example.member.entity.*;
 
 import java.util.List;
 
@@ -19,7 +17,16 @@ public interface IMemberService {
     public List<Member> findByNom(String nom);
     //recherche spécifique des étudiants
     public List<Etudiant> findByDiplome(String diplome);
+    public List<Etudiant> findEtudiantByEnseignant(EnseignantChercheur encadrant);
     //recherche spécifique des enseignants
     public List<EnseignantChercheur> findByGrade(String grade);
     public List<EnseignantChercheur> findByEtablissement(String etablissement);
+    public void affecterauteurTopublication(Long idauteur, Long idpub);
+    public void affecterauteurToevnement(Long idauteur, Long idpub)  ;
+    public void affecterauteurToOutil(Long idauteur, Long idpub) ;
+    public List<PublicationBean>
+    findPublicationparauteur (Long idauteur);
+
+    public List<EvenementBean> findEventparauteur(Long idauteur);
+    public List<OutilBean> findOutilparauteur(Long idauteur);
 }

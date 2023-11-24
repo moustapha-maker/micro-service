@@ -1,5 +1,6 @@
 package com.example.member.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,6 +19,8 @@ public class Etudiant extends Member {
     private String diplome ;
     private String sujet;
 
+    @JoinColumn(name = "chercheur_id")
+    @JsonBackReference
     @ManyToOne EnseignantChercheur encadrant;
 
     @Builder

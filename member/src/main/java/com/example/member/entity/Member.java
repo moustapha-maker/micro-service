@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -37,5 +38,13 @@ public abstract class Member implements Serializable {
     @NonNull
     private String password ;
 
+    @Transient
+    Collection<PublicationBean> pubs;
 
+    @Transient
+    Collection<OutilBean> outils;
+
+
+    @Transient
+    Collection<EvenementBean> events;
 }
