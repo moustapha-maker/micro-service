@@ -8,5 +8,5 @@ import java.util.List;
 @RepositoryRestController
 public interface PublicationRepository extends JpaRepository<Publication,Long> {
     List<Publication> findByType(String lieu);
-    Publication findByTitre(String titre);
+    Publication findByTitle(String titre);
 }

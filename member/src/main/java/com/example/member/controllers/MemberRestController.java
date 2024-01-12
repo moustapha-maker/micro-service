@@ -38,6 +38,17 @@ public class MemberRestController {
     {
         return memberService.addMember(m);
     }
+    @GetMapping(value="/membres/affectStudentToProf/{idProf}/{idEtud}")
+    public void affectStudentToProf(@PathVariable("idProf") Long idProf ,@PathVariable("idEtud") Long idEtud)
+    {
+          memberService.affecterStudentToProf(idProf,idEtud);
+    }
+    @GetMapping(value="/membres/affectArticleToMember/{idProf}/{idPub}")
+    public void affectArticleToMember(@PathVariable("idProf") Long idProf ,@PathVariable("idPub") Long idPub)
+    {
+        memberService.affecterauteurTopublication(idProf,idPub);
+    }
+
     @PostMapping(value="/membres/etudiant")
     public Member addMembre(@RequestBody Etudiant e)
     {
@@ -68,7 +79,6 @@ public class MemberRestController {
         mbr.setPubs(memberService.findPublicationparauteur(id));
         mbr.setEvents(memberService.findEventparauteur(id));
         mbr.setOutils(memberService.findOutilparauteur(id));
-
         return mbr;
     }
 }

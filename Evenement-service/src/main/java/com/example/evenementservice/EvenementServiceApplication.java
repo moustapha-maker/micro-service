@@ -26,8 +26,8 @@ public class EvenementServiceApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         configuration.exposeIdsFor(Evenement.class);
-        Evenement ev= new Evenement("event 1",new Date(),"sfax");
-        Evenement ev2= new Evenement("event 2",new Date(),"Tunis");
+        Evenement ev= new Evenement("event 1",new Date(),new Date(),"sfax");
+        Evenement ev2= new Evenement("event 2",new Date(),new Date(),"Tunis");
         evenementRespository.save(ev);
         evenementRespository.save(ev2);
     }

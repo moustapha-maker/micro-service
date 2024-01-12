@@ -25,6 +25,4 @@ public class Outil
     @NonNull
     private  String source;
 
-
-
 }

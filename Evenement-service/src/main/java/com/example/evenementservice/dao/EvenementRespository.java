@@ -9,5 +9,5 @@ import java.util.List;
 @RepositoryRestController
 public interface EvenementRespository extends JpaRepository<Evenement,Long> {
     List<Evenement> findByLieu(String lieu);
-    Evenement findByTitre(String titre);
+    Evenement findByTitle(String titre);
 }

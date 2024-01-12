@@ -19,7 +19,7 @@ public class Publication {
     @NonNull
     private String type;
     @NonNull
-    private String titre;
+    private String title;
 
     @NonNull    @Temporal(TemporalType.DATE)
     private Date date;

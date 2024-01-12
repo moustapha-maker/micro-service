@@ -7,7 +7,7 @@ import java.util.Date;
 @Data
 public class EvenementBean {
         private Long id;
-        private String titre;
+        private String  title;
         private Date date;
         private String lieu ;
     }

@@ -22,6 +22,7 @@ public interface IMemberService {
     public List<EnseignantChercheur> findByGrade(String grade);
     public List<EnseignantChercheur> findByEtablissement(String etablissement);
     public void affecterauteurTopublication(Long idauteur, Long idpub);
+    public void affecterStudentToProf(Long idProf, Long idEtud);
     public void affecterauteurToevnement(Long idauteur, Long idpub)  ;
     public void affecterauteurToOutil(Long idauteur, Long idpub) ;
     public List<PublicationBean>

@@ -1,5 +1,4 @@
 package com.example.member;
-
 import com.example.member.dao.*;
 import com.example.member.entity.*;
 import com.example.member.proxies.EvenementProxy;
@@ -13,7 +12,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 @SpringBootApplication
@@ -32,6 +30,8 @@ public class MemberApplication  implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(MemberApplication.class, args);
     }
+
+
 
     @Override
     public void run(String... args) throws Exception {
@@ -72,10 +72,6 @@ public class MemberApplication  implements CommandLineRunner {
              ) {
             System.out.println(member.getNom() +" "+ member.getPrenom() + "" + member.getId() +" : "+ member.getClass().getName());
         }
-
-
-
-
 
     }
 }

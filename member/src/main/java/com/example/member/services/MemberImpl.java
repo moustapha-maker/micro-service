@@ -85,6 +85,13 @@ public class MemberImpl implements  IMemberService{
     }
 
     @Override
+    public void affecterStudentToProf(Long idProf, Long idEtud) {
+        EnseignantChercheur prof= enseignantChercheurRepository.findById(idProf).get();
+        Etudiant etdu= etudiantRepository.findById(idEtud).get();
+        etdu.setEncadrant(prof);
+        etudiantRepository.save(etdu);
+    }
+    @Override
     public void affecterauteurToOutil(Long idauteur, Long idpub) {
         Member mbr= memberRepository.findById(idauteur).get();
         Membre_Outil mbs= new Membre_Outil();
@@ -96,7 +103,7 @@ public class MemberImpl implements  IMemberService{
     public List<PublicationBean> findPublicationparauteur(Long idauteur) {
         List<PublicationBean> pubs=new ArrayList<PublicationBean>();
         Member auteur= memberRepository.findById(idauteur).get();
-        List< Membre_Publication>
+        List<Membre_Publication>
                 idpubs=membrePubRepository.findByAuteur(auteur);
         idpubs.forEach(s->{
             System.out.println(s);

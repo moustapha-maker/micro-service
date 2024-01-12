@@ -29,7 +29,7 @@ public abstract class Member implements Serializable {
     private String prenom;
     @NonNull @Temporal(TemporalType.DATE)
     private Date dateNaissence ;
-    @NonNull
+    
     private byte[] photo ;
     @NonNull
     private String cv ;
