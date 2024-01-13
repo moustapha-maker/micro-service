@@ -49,6 +49,16 @@ public class MemberRestController {
         memberService.affecterauteurTopublication(idProf,idPub);
     }
 
+    @GetMapping(value="/membres/affectEventToMember/{idProf}/{idEvnt}")
+    public void affectEventToMember(@PathVariable("idProf") Long idProf ,@PathVariable("idEvnt") Long idEvnt)
+    {
+        memberService.affecterauteurToevnement(idProf,idEvnt);
+    }
+    @GetMapping(value="/membres/affectOutilsToMember/{idProf}/{idOutils}")
+    public void affectOutisToMember(@PathVariable("idProf") Long idProf ,@PathVariable("idOutils") Long idOutils)
+    {
+        memberService.affecterauteurToOutil(idProf,idOutils);
+    }
     @PostMapping(value="/membres/etudiant")
     public Member addMembre(@RequestBody Etudiant e)
     {
@@ -80,5 +90,17 @@ public class MemberRestController {
         mbr.setEvents(memberService.findEventparauteur(id));
         mbr.setOutils(memberService.findOutilparauteur(id));
         return mbr;
+    }
+
+    @GetMapping("membres/fullmembers")
+    public List<Member> findAFullMember() {
+        List<Member> members = memberService.findAll();
+
+        for (int i = 0; i < members.size(); i++) {
+            members.get(i).setPubs(memberService.findPublicationparauteur(members.get(i).getId()));
+            members.get(i).setEvents(memberService.findEventparauteur(members.get(i).getId()));
+            members.get(i).setOutils(memberService.findOutilparauteur(members.get(i).getId()));
+
+        } return members;
     }
 }
